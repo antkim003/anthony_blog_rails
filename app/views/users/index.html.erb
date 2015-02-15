@@ -1,21 +1,27 @@
- <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<h1>Listing users</h1>
 
-<div class="v-t">
-  <div class="v-tc">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-    <h1>Happy Valentine's<br><span>Bee Mine</span></h1>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-    <div class="bee">
-      <div class="antennae"></div>  
-      <div class="wing one"></div>
-      <div class="wing two"></div>
-    </div>
-    <div class="shadow"></div>
+<br>
 
-     <h2>
-       for Christine <br />
-       from Anthony
-    </h2>
-  </div>
-</div>
-<div class="background-gradient"></div>
+<%= link_to 'New User', new_user_path %>

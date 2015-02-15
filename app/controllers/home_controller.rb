@@ -1,7 +1,7 @@
-class HomeController < ApplicationController::Base
+class HomeController < ApplicationController
 
   def index
-    render text: "hello, world!"
+    
   end
 
 end
