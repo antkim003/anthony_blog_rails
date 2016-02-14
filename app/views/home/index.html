@@ -1,27 +1,37 @@
- <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<h1>Happy Valentine's Day :)</h1>
 
-<div class="container container-1">
-  <div class="v-t">
-    <div class="v-tc">
 
-      <h1>Happy Valentine's<br><span>Bee Mine</span></h1>
+<canvas id="canvas" height="200" width="200"></canvas>
+<div class="leaf"></div>
+<div class="stem"></div>
 
-      <div class="bee">
-        <div class="antennae"></div>  
-        <div class="wing one"></div>
-        <div class="wing two"></div>
-      </div>
-      <div class="shadow"></div>
+<h3>From: Anthony</h3>
 
-       <h2>
-         for Christine <br />
-         from Anthony
-      </h2>
-    </div>
-  </div>
-</div>
+<script type="text/javascript">
+  window.onload = function() {
+      //Create the canvas
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
 
-<div class="container-2">
-  
-</div>
-<div class="background-gradient"></div>
+
+      setInterval(function() {
+          //Generating random positions
+          var posX = Math.floor(Math.random() * 200);
+          var posY = Math.floor(Math.random() * 200);
+
+          //Picking selected colors at random 
+          var colors = ['rgba(220, 20, 60, 0.8)', 'rgba(255, 105, 180,0.6)', 'rgba(255, 20, 147, 0.8)', 'rgba(255, 140, 0,0.6)', 'rgba(143, 188, 143,0.7)'];
+          var color = Math.floor(Math.random() * colors.length);
+
+          //Drawing on the canvas
+          context.beginPath();
+          context.moveTo(200, 0);
+          context.lineTo(1, -1);
+          context.fillStyle = colors[color];
+          context.arc(posX, posY, 0, 0, Math.PI * 2, true);
+          context.closePath();
+          context.fill();
+      }, 80)
+  };
+
+</script>
